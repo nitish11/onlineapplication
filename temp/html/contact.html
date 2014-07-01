@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>contact</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+jQuery(document).ready(function(){
+	$('#contactform').submit(function(){				  
+		var action = $(this).attr('action');
+		$.post(action, { 
+			name: $('#name').val(),
+			email: $('#email').val(),
+			company: $('#company').val(),
+			subject: $('#subject').val(),
+			message: $('#message').val()
+		},
+			function(data){
+				$('#contactform #submit').attr('disabled','');
+				$('.response').remove();
+				$('#contactform').before('<p class="response">'+data+'</p>');
+				$('.response').slideDown();
+				if(data=='Message sent!') $('#contactform').slideUp();
+			}
+		); 
+		return false;
+	});
+});
+// ]]>
+</script>
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="block_header">
+      <div class="logo"><a href="index.html"><img src="images/logo.gif" width="306" height="124" border="0" alt="logo" /></a></div>
+      <div class="search">
+        <form id="form1" name="form1" method="post" action="">
+          <label>
+            <input name="q" type="text" class="keywords" id="textfield" maxlength="50" />
+            <input name="b" type="image" src="images/search.gif" class="button" />
+          </label>
+        </form>
+      </div>
+      <div class="clr"></div>
+      <div style="float:right;">
+        <div class="clr"></div>
+        <div class="menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>                                   
+        <li><a href="contact.html">About us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+       </ul>
+    </div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+   <div class="body">
+    <div class="body_resize">
+      <div class="left">
+        <h3>Department</h3>
+        <ul>
+          <li><a href="#">Russia</a></li>
+          <li><a href="#">Germany</a></li>
+          <li><a href="#">USA</a></li>
+          <li><a href="#">Canada</a></li>
+          <li><a href="#">France</a></li>
+        </ul>
+      </div>
+      <div class="right">
+        <h3>Contact form</h3>
+        <div class="bg"></div>
+        <p><img src="images/contact_img.jpg" width="265" height="255" alt="map" /></p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>Name of the Company<br />
+          2901 Marmora Road, Glassgow, D04 59GR<br />
+        Telephone: +1 234 567 8910</p>
+        <p>FAX: +1 234 567 8910<br />
+        E-mail: <a href="#">mail@yoursitename.com</a></p>
+        <p>&nbsp;</p>
+        <div class="bg"></div>
+         <p><strong>Many desktop publishing packages and web</strong> page editors now use Lorem Ipsum as their default model text, and a searem ipsum' will uncover many web sites still in their infancy.</p>
+         <form action="contact.php" method="post" id="contactform">
+            <ol>
+              <li>
+                <label for="name">your name <span class="red">*</span></label>
+                <input id="name" name="name" class="text" />
+              </li>
+              <li>
+                <label for="email">Your email <span class="red">*</span></label>
+                <input id="email" name="email" class="text" />
+              </li>
+              <li>
+                <label for="company">Company Name</label>
+                <input id="company" name="company" class="text" />
+              </li>
+              <li>
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" class="text" />
+              </li>
+              <li>
+                <label for="message">message <span class="red">*</span></label>
+                <textarea id="message" name="message" rows="6" cols="50"></textarea>
+              </li>
+              <li class="buttons">
+                <input type="image" name="imageField" id="imageField" src="images/send_massage.gif" />
+              </li>
+            </ol>
+          </form>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+    <div class="bloga">
+   <div class="twitter">
+     <p><img src="images/Twitter.gif" width="72" height="84"  alt="twitter"/></p>
+     <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+     <p><a href="#">twitter.com/username</a></p>
+     </div>
+     <div class="area">
+     <p><strong>Page editors now use Lorem Ipsum</strong> as their default model text, and a searem ipsum' will uncover many web sites still in their infancy.</p>
+     <div class="bg"></div>
+     <p><strong>Lorem Ipsum is simply dummy text </strong>of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+     </div>
+    </div>
+    <div class="clr"></div>
+  </div>
+    <div class="footer">    
+    <div class="resize">    
+      
+      <div><p class="footer_logo"><a href="#"><img src="images/RSS.gif" width="30" height="30" border="0" alt="RSS" /></a></p>© Copyright 2009. <a href="http://dreamtemplate.com/">dreamtemplate.com</a>. All Rights Reserved<br />
+      <a href="index.html">Home</a> | <a href="contact.html">Contact</a> | <a href="blog.html">RSS</a></div>
+    </div>
+    <p class="clr"></p>
+  </div>
+</div>
+</body>
+</html>
